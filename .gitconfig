@@ -1,0 +1,32 @@
+[user]
+	name = chiragix
+	email = 207469623+chiragix@users.noreply.github.com
+	signingkey = /Users/chirag/.ssh/id_ed25519_signing.pub
+[init]
+	defaultBranch = main
+[core]
+	excludesfile = /Users/chirag/.gitignore_global
+	editor = nvim -f
+	autocrlf = input
+	pager = delta
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	navigate = true
+	dark = true
+	side-by-side = true
+	line-numbers = true
+	hyperlinks = true
+[merge]
+	conflictStyle = zdiff3
+[diff]
+	colorMoved = default
+	algorithm = histogram
+[pull]
+	rebase = true
+[gpg]
+	format = ssh
+[commit]
+	gpgsign = true
+[tag]
+	gpgsign = true
