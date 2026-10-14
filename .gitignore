@@ -1,1 +1,7 @@
+# nvim
 lazy-lock.json
+
+# zsh
+.config/zsh/completion/
+.config/zsh/plugins/
+.config/zsh/.zsh_sessions
