@@ -1,0 +1,5 @@
+std = ["luajit", "neovim"]
+
+
+[rules]
+mixed_table = "allow"
