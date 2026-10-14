@@ -1,0 +1,27 @@
+theme = "TokyoNight Night"
+
+font-family = "JetBrainsMono Nerd Font"
+font-size = 18
+
+shell-integration = detect
+
+# ---- Quality-of-life ----
+mouse-hide-while-typing = true
+window-padding-x = 4
+window-padding-y = 4
+window-padding-balance = true
+cursor-style = block
+cursor-style-blink = false
+window-decoration = auto
+
+scrollback-limit = 100000000
+copy-on-select = clipboard
+clipboard-paste-protection = true
+mouse-hide-while-typing = true
+confirm-close-surface = false
+bold-is-bright = false
+macos-option-as-alt = true
+
+# Make TokyoNight green render as a soft neutral white
+palette = 2=#d8dee9
+palette = 10=#d8dee9
