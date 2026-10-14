@@ -8,3 +8,7 @@ lazy-lock.json
 
 # tmux
 .config/tmux/plugins
+
+# zed
+.config/zed/prompts
+.config/zed/themes
