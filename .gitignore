@@ -12,3 +12,8 @@ lazy-lock.json
 # zed
 .config/zed/prompts
 .config/zed/themes
+
+# ssh
+.ssh/agent
+.ssh/id_ed25519
+.ssh/known_hosts
