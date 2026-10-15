@@ -1,0 +1,66 @@
+tap "theboredteam/boring-notch", "https://github.com/TheBoredTeam/homebrew-boring-notch"
+# Clone of cat(1) with syntax highlighting and Git integration
+brew "bat"
+# Modern, maintained replacement for ls
+brew "eza"
+# Simple, fast and user-friendly alternative to find
+brew "fd"
+# Fast and simple Node.js version manager
+brew "fnm"
+# Command-line fuzzy finder written in Go
+brew "fzf"
+# Distributed revision control system
+brew "git"
+# Syntax-highlighting pager for git and diff output
+brew "git-delta"
+# Open source programming language to build simple/reliable/efficient software
+brew "go"
+# Simple terminal UI for git commands
+brew "lazygit"
+# Ambitious Vim-fork focused on extensibility and agility
+brew "neovim"
+# Search tool like grep and The Silver Searcher
+brew "ripgrep"
+# Cross-shell prompt for astronauts
+brew "starship"
+# Terminal multiplexer
+brew "tmux"
+# Parser generator tool
+brew "tree-sitter-cli"
+# Extremely fast Python package installer and resolver, written in Rust
+brew "uv"
+# Shell extension to navigate your filesystem faster
+brew "zoxide"
+# Password manager that keeps all passwords secure behind one password
+cask "1password"
+# Send any size file between devices
+cask "blip"
+cask "boring-notch"
+# Web browser focusing on privacy
+cask "brave-browser"
+# Desktop client for Ente Auth
+cask "ente-auth"
+# Web browser
+cask "firefox"
+cask "font-jetbrains-mono-nerd-font"
+# Terminal emulator that uses platform-native UI and GPU acceleration
+cask "ghostty"
+# Free and open-source media player
+cask "iina"
+# Tool to show what is persistently installed on the computer
+cask "knockknock"
+# Open-source firewall to block unknown outgoing connections
+cask "lulu"
+# Utility to uninstall apps and remove leftover files from old/uninstalled apps
+cask "pearcleaner"
+# Control your tools with a few keystrokes
+cask "raycast"
+# Screenshot measurement and annotation tool
+cask "shottr"
+# Instant messaging application focusing on security
+cask "signal"
+# System monitor for the menu bar
+cask "stats"
+# Multiplayer code editor
+cask "zed"
+go "github.com/bootdotdev/bootdev"
