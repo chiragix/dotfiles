@@ -91,4 +91,4 @@ ssh-add --apple-use-keychain ~/.ssh/id_ed25519_signing
 ## Credits
 
 - **[Atlassian](https://www.atlassian.com/git/tutorials/dotfiles)**: the bare Git repository method to manage dotfile.
-- **[Radley Lewis:](https://github.com/radleylewis/zsh)**: the structure for my zsh, nvim and tmux configurations.
+- **[Radley Lewis](https://github.com/radleylewis/)**: the structure for my zsh, nvim and tmux configurations.
