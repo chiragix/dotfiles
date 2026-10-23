@@ -7,6 +7,10 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "markdown_preview": {
+    "font_family": "JetBrainsMono Nerd Font Mono",
+    "code_font_family": "JetBrainsMono Nerd Font Mono"
+  },
   "cli_default_open_behavior": "existing_window",
   "languages": {
     "C": {
@@ -44,7 +48,9 @@
     "allow_data_collection": "no"
   },
   "agent": {
-    "sidebar_side": "left",
+    "threads_sidebar": {
+      "position": "left"
+    },
     "dock": "left",
     "favorite_models": [],
     "model_parameters": [],
@@ -95,8 +101,6 @@
       "line_endings_button": false,
   },
   "reduce_motion": "off",
-  "markdown_preview_code_font_family": "JetBrainsMono Nerd Font Mono",
-  "markdown_preview_font_family": "JetBrainsMono Nerd Font Mono",
   "base_keymap": "Zed",
   "ui_font_family": "JetBrainsMono Nerd Font Mono",
   "buffer_font_family": "JetBrainsMono Nerd Font Mono",
