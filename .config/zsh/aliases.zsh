@@ -57,3 +57,6 @@ alias gb='git branch'
 alias gd='git diff'
 alias gp='git push'
 
+# tldr
+
+alias tldr='tldr -c'
