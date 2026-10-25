@@ -23,6 +23,8 @@ brew "neovim"
 brew "ripgrep"
 # Cross-shell prompt for astronauts
 brew "starship"
+# Official tldr client written in Rust
+brew "tlrc"
 # Terminal multiplexer
 brew "tmux"
 # Parser generator tool
@@ -35,7 +37,8 @@ brew "zoxide"
 cask "1password"
 # Send any size file between devices
 cask "blip"
-cask "boring-notch"
+# Not so boring notch That Rocks
+cask "theboredteam/boring-notch/boring-notch", trusted: true
 # Web browser focusing on privacy
 cask "brave-browser"
 # Desktop client for Ente Auth
