@@ -1,7 +1,6 @@
-# =========================================================
-# History
-# =========================================================
+# ~/.config/zsh/.zshrc
 
+# ---------- History ----------
 HISTFILE="$XDG_STATE_HOME/zsh/history"
 HISTSIZE=100000
 SAVEHIST=100000
@@ -13,39 +12,48 @@ setopt HIST_IGNORE_SPACE
 setopt HIST_EXPIRE_DUPS_FIRST
 setopt HIST_FIND_NO_DUPS
 
-# =========================================================
-# Shell behaviour
-# =========================================================
-
+# ---------- Shell behaviour ----------
 setopt AUTOCD
 setopt NOBEEP
-setopt NUMERIC_GLOB_SORT # sort file10 after file9, not after file1
+setopt NUMERIC_GLOB_SORT
 
-# =========================================================
-# Smart directory navigation & lf
-# =========================================================
+# ---------- Path ----------
+typeset -U path PATH
+
+if [[ -x /opt/homebrew/bin/brew ]]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
+if command -v fnm >/dev/null 2>&1; then
+  eval "$(fnm env --use-on-cd --shell zsh)"
+fi
+
+if command -v zoxide >/dev/null 2>&1; then
+  eval "$(zoxide init zsh --cmd cd)"
+fi
+
+path=(
+  "$HOME/.local/bin"
+  "$HOME/go/bin"
+  /opt/homebrew/bin
+  /opt/homebrew/sbin
+  $path
+)
+export PATH
+
+# ---------- Manpage with bat ----------
+if command -v bat >/dev/null 2>&1; then
+  export BAT_PAGER="less -RF"
+  export MANPAGER="sh -c 'col -bx | bat -plman'"
+fi
+
+# ---------- Smart directory navigation & lf ----------
 if [[ -f ~/.config/lf/icons ]]; then
   LF_ICONS=$(cat ~/.config/lf/icons | tr '\n' ':')
   export LF_ICONS
 fi
 
-
-# # Initialize zoxide, homebrew and fnm
-eval "$(zoxide init zsh --cmd cd)"
-eval "$(fnm env --use-on-cd --shell zsh)"
-
-# Reassert priority — path_helper (run by /etc/zprofile) puts
-# /opt/homebrew/bin after /usr/bin; force it back to the front.
-path=("/opt/homebrew/bin" "$HOME/.local/bin" $path)
-
-# Only load from Keychain if ssh-agent currently has no identities loaded
-if ! /usr/bin/ssh-add -l >/dev/null 2>&1; then
-  /usr/bin/ssh-add --apple-load-keychain ~/.ssh/id_ed25519 >/dev/null 2>&1
-fi
-
-# =========================================================
-# Completion
-# =========================================================
+# ---------- Completion ----------
 
 # Load completion system
 autoload -Uz compinit
@@ -57,12 +65,10 @@ compinit -d "$XDG_CACHE_HOME/zsh/zcompdump"
 zstyle ':completion:*' menu select
 
 # Make completion case-insensitive
-# Example: "doc" can complete to "Documents"
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}' # lowercase input matches upper and lower
 
-# =========================================================
-# Fuzzy finder
-# =========================================================
+
+# ---------- Fuzzy finder ----------
 
 # macOS / Homebrew (Apple Silicon)
 if [[ -f /opt/homebrew/opt/fzf/shell/key-bindings.zsh ]]; then
@@ -70,9 +76,8 @@ if [[ -f /opt/homebrew/opt/fzf/shell/key-bindings.zsh ]]; then
   source /opt/homebrew/opt/fzf/shell/completion.zsh
 fi
 
-# =========================================================
-# Modular Config Files
-# =========================================================
+
+# ---------- Modular Config Files ----------
 
 # fzf configuration
 source "$ZDOTDIR/fzf.zsh"
