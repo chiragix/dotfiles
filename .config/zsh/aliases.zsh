@@ -1,3 +1,7 @@
+# ~/.config/zsh/aliases.zsh
+
+# ---------- Eza ----------
+
 # Standard listing
 alias ls='eza --icons=auto --color=auto --group-directories-first'
 
@@ -13,10 +17,7 @@ alias tree='eza --tree --icons=auto --color=auto --level=2 --group-directories-f
 # Reuse ls completions for eza
 compdef eza=ls
 
-# =========================================================
-# Navigation
-# =========================================================
-
+# ---------- Navigation ----------
 alias -- -='cd -' # -- prevents - being parsed as a flag; cd - jumps to previous directory
 
 lf() { # zsh follow lf navigation
@@ -29,21 +30,16 @@ lf() { # zsh follow lf navigation
   fi
 }
 
-# =========================================================
-# Editor
-# =========================================================
-
+# ---------- Editor ----------
 alias vim='nvim'
 alias v='nvim'
 
+# ---------- Bat ----------
 if command -v bat >/dev/null 2>&1; then
   alias cat="bat --paging=never --style=plain"
 fi
 
-# =========================================================
-# Git
-# =========================================================
-
+# ---------- Git ----------
 alias config='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias gs='git status'
 alias gss='git status -s'
@@ -57,6 +53,5 @@ alias gb='git branch'
 alias gd='git diff'
 alias gp='git push'
 
-# tldr
-
+# ---------- tldr ----------
 alias tldr='tldr -c'

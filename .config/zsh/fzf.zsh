@@ -1,8 +1,9 @@
-# =========================================================
-# fzf
-# =========================================================
+# ~/.config/zsh/fzf.zsh
 
-export FZF_DEFAULT_COMMAND='fd --type f --hidden --strip-cwd-prefix'  # strip-cwd-prefix removes the leading ./ from results
+# ---------- fzf ----------
+
+# strip-cwd-prefix removes the leading ./ from results
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --strip-cwd-prefix'
 
 # Ctrl-T uses fd
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
@@ -29,7 +30,3 @@ _fzf_file_no_hidden() {
   zle reset-prompt
 }
 zle -N _fzf_file_no_hidden
-
-
-
-

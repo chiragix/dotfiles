@@ -1,6 +1,6 @@
-# =========================================================
-# Keybindings
-# =========================================================
+# ~/.config/zsh/bindings.zsh
+
+# ---------- Keybindings ----------
 
 # Cursor shape per vi mode
 ZVM_INSERT_MODE_CURSOR=$ZVM_CURSOR_BEAM
@@ -12,8 +12,7 @@ ZVM_VI_HIGHLIGHT_BACKGROUND=none
 ZVM_VI_HIGHLIGHT_FOREGROUND=none
 ZVM_VI_HIGHLIGHT_EXTRASTYLE=none
 
-# # zsh-vi-mode resets all bindings on init, so custom bindings
-# # must be registered via this hook to survive.
+# zsh-vi-mode resets all bindings on init, so custom bindings must be registered via this hook to survive.
 zvm_after_init() {
   # Ctrl+Right -> move forward one word (^[[1;5C is the terminal escape code)
   bindkey '^[[1;5C' forward-word
