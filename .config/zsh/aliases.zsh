@@ -55,3 +55,9 @@ alias gp='git push'
 
 # ---------- tldr ----------
 alias tldr='tldr -c'
+
+# make parent dirs as needed
+alias mkdir="mkdir -p"
+
+# prints human readable format
+alias df="df -h"
