@@ -2,31 +2,31 @@
 
 # ---------- fzf ----------
 
-# strip-cwd-prefix removes the leading ./ from results
-export FZF_DEFAULT_COMMAND='fd --type f --hidden --strip-cwd-prefix'
+_FZF_FD_BASE='fd --type f --strip-cwd-prefix'
 
-# Ctrl-T uses fd
+# Default fzf: include hidden files, exclude .git
+export FZF_DEFAULT_COMMAND="$_FZF_FD_BASE --hidden --exclude .git"
+
+# Ctrl-T: same search behavior
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # UI
 export FZF_DEFAULT_OPTS='
-  --height=60%
-  --layout=reverse
+  --tmux=center,80%,60%
+  --layout=default
   --border=rounded
-  --prompt="  "
-  --pointer="  "
-  --preview-window=right:65%:wrap:border-left
+  --prompt="❯ "
+  --pointer="▌"
+  --preview-window=right:50%:wrap:border-left
 '
 
-export _FZF_PREVIEW_CMD='bat --color=always --style=numbers --line-range=:500 {}'
+_FZF_PREVIEW_CMD='bat --color=always --style=numbers --line-range=:500 {}'
 export FZF_CTRL_T_OPTS="--preview '$_FZF_PREVIEW_CMD'"
 
 # Ctrl+F: file picker excluding hidden files
 _fzf_file_no_hidden() {
-  local cmd result
-  cmd="${FZF_DEFAULT_COMMAND/--hidden /}"
-  result=$(eval "${cmd:-find . -type f}" | fzf --preview "$_FZF_PREVIEW_CMD") \
-    && LBUFFER+="$result"  # LBUFFER is the text left of the cursor
-  zle reset-prompt
+  local FZF_CTRL_T_COMMAND="$_FZF_FD_BASE"
+  fzf-file-widget
 }
+
 zle -N _fzf_file_no_hidden
