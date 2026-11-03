@@ -2,6 +2,7 @@
 
 "$schema" = 'https://starship.rs/config-schema.json'
 add_newline = false
+command_timeout = 1000
 palette = "tokyonight"
 
 format = """
@@ -9,11 +10,15 @@ $username\
 $hostname\
 $directory\
 $git_branch\
+$git_state\
 $git_status\
-$python\
-$cmd_duration\
-$status\
 $character"""
+
+right_format = """
+$python\
+$jobs\
+$cmd_duration\
+$status"""
 
 [palettes.tokyonight]
 rosewater = '#f7768e'
@@ -51,13 +56,14 @@ disabled = false
 
 [hostname]
 ssh_only = true
-style = "bold overlay0"
+style = "bold subtext0"
 format = "[@$hostname]($style) "
 
 [directory]
 style = "bold sky"
 format = "[$path]($style) "
 truncation_length = 4
+truncation_symbol = "…/"
 truncate_to_repo = true
 
 [character]
@@ -67,12 +73,18 @@ vimcmd_symbol = "[❮](bold mauve)"
 
 [status]
 disabled = false
-format = "[$status]($style) "
+format = "[$int( $common_meaning)( $signal_name)]($style) "
 style = "bold red"
 
 [git_branch]
 symbol = ""
 format = "[$symbol $branch](bold mauve) "
+truncation_length = 24
+truncation_symbol = "…"
+
+[git_state]
+style = "bold peach"
+format = '[\($state( $progress_current/$progress_total)\)]($style) '
 
 [git_status]
 format = "($ahead_behind$staged$modified$untracked$deleted$conflicted)"
@@ -84,6 +96,8 @@ modified = "[●$count ](yellow)"
 untracked = "[?$count ](overlay1)"
 deleted = "[✘$count ](red)"
 conflicted = "[⚡$count ](bold red)"
+stashed = "[≡$count ](overlay2)"
+renamed    = "[»$count ](blue)"
 
 [cmd_duration]
 format = "[$duration]($style) "
