@@ -34,7 +34,6 @@ fi
 
 path=(
   "$HOME/.local/bin"
-  "$HOME/go/bin"
   /opt/homebrew/bin
   /opt/homebrew/sbin
   $path
