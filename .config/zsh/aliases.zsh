@@ -53,6 +53,9 @@ alias gb='git branch'
 alias gd='git diff'
 alias gp='git push'
 
+# ---------- Lazygit ----------
+alias lg='lazygit'
+
 # ---------- tldr ----------
 alias tldr='tldr -c'
 
